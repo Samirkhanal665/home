@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hobbies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f7;
+            color: #333;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('images/hobbies-bg.jpg') no-repeat center center/cover;
+            padding: 40px;
+            background-attachment: fixed;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h1 {
+            font-size: 36px;
+            font-weight: 600;
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .hobby-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .hobby-item {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .hobby-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .hobby-item h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .hobby-item p {
+            font-size: 16px;
+            color: #777;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #2a3d66;
+            color: white;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            font-size: 16px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+                max-width: 95%;
+            }
+
+            .content h1 {
+                font-size: 28px;
+            }
+
+            .hobby-item h3 {
+                font-size: 20px;
+            }
+
+            .hobby-item p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Container with Background Image -->
+    <div class="container">
+        <div class="content">
+            <h1>My Hobbies</h1>
+            <p>
+                In my free time, I enjoy a variety of activities that keep me active and engaged. I believe that hobbies are an important way to relax, learn new things, and meet like-minded people. Below are some of my favorite hobbies:
+            </p>
+
+            <!-- Hobby List -->
+            <div class="hobby-list">
+                <!-- Football -->
+                <div class="hobby-item">
+                    <img src="images/football.jpg" alt="Football">
+                    <h3>Football</h3>
+                    <p>I enjoy playing football with friends on weekends. It’s a great way to stay fit and have fun at the same time. Whether it's a casual game or a competitive match, football is one of my favorite hobbies.</p>
+                </div>
+
+                <!-- Cricket -->
+                <div class="hobby-item">
+                    <img src="images/cricket.jpg" alt="Cricket">
+                    <h3>Cricket</h3>
+                    <p>Cricket is another sport I am passionate about. I play it whenever I get a chance, and it brings me joy and excitement, especially when I’m with friends or fellow cricket enthusiasts.</p>
+                </div>
+
+                <!-- Hiking -->
+                <div class="hobby-item">
+                    <img src="images/hiking.jpg" alt="Hiking">
+                    <h3>Hiking</h3>
+                    <p>Exploring the outdoors through hiking is a wonderful way to reconnect with nature. I love trekking in the hills and mountains, experiencing new landscapes, and feeling refreshed after a long hike.</p>
+                </div>
+
+                <!-- Reading -->
+                <div class="hobby-item">
+                    <img src="images/reading.jpg" alt="Reading">
+                    <h3>Reading</h3>
+                    <p>Reading books has always been a hobby of mine. I enjoy a variety of genres, including fiction, history, and science. Books broaden my perspective and allow me to discover new ideas and stories.</p>
+                </div>
+
+                <!-- Traveling -->
+                <div class="hobby-item">
+                    <img src="images/traveling.jpg" alt="Traveling">
+                    <h3>Traveling</h3>
+                    <p>Traveling helps me discover new places, cultures, and experiences. I believe it’s an enriching experience that opens the mind to different ways of life and traditions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Samir Khanal. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

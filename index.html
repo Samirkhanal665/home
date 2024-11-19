@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samir's Personal Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f7;
+            color: #333;
+            display: flex;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: #2a3d66;
+            color: white;
+            width: 250px;
+            padding: 30px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .sidebar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            margin-bottom: 20px;
+        }
+
+        .sidebar h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .sidebar p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar nav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            margin-bottom: 15px;
+            padding: 8px 0;
+            transition: 0.3s ease;
+        }
+
+        .sidebar nav a:hover {
+            color: #4e73df;
+        }
+
+        /* Main Content */
+        .content {
+            margin-left: 270px;
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .content header {
+            background-color: #4e73df;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content header h1 {
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        .content header p {
+            font-size: 18px;
+        }
+
+        .section {
+            margin: 40px 0;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .section ul {
+            padding-left: 20px;
+            margin-top: 20px;
+        }
+
+        .section ul li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #2a3d66;
+            color: white;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            font-size: 16px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                margin-left: 0;
+                padding: 15px;
+            }
+
+            .sidebar {
+                width: 200px;
+                padding: 20px;
+            }
+
+            .sidebar h2 {
+                font-size: 20px;
+            }
+
+            .sidebar nav a {
+                font-size: 14px;
+            }
+
+            .content header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="images/samir1.jpg" alt="Samir's Photo">
+        <h2>Samir Khanal</h2>
+        <p>Student at Tongmyong University</p>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="civil-engineering.html">Civil Engineering</a>
+            <a href="materials.html">Class Materials</a>
+            <a href="life-in-korea.html">Life in Korea</a>
+            <a href="hobbies.html">Hobbies</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <header>
+            <h1>Welcome to My Personal Page</h1>
+            <p>Learn more about my journey, hobbies, and academic pursuits!</p>
+        </header>
+
+        <!-- Self Introduction Section -->
+        <section class="section">
+            <h2>Self Introduction</h2>
+            <p>Hello, my name is Samir Khanal, and I am from Palpa, Nepal. I completed my diploma in Civil Engineering in Nepal and am currently studying Information Systems and Security at Tongmyong University in Busan, South Korea. In addition to my academic work, I am passionate about sports, especially football and cricket, and I enjoy spending my weekends relaxing or learning new skills.</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2>Skills & Expertise</h2>
+            <p>Throughout my academic and professional journey, I have gained expertise in various fields, including:</p>
+            <ul>
+                <li><strong>AutoCAD:</strong> Proficient in creating 2D and 3D designs for construction and architectural projects.</li>
+                <li><strong>SketchUp:</strong> Skilled in creating 3D models for building designs and presentations.</li>
+                <li><strong>Valuation Survey:</strong> Experienced in land and property surveys for project costing and property assessments.</li>
+                <li><strong>Building Supervision:</strong> Able to oversee construction projects to ensure quality and adherence to standards.</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Samir Khanal. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
