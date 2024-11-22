@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samir's Personal Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         /* Base Reset */
         * {
@@ -19,6 +20,7 @@
             color: #333;
             display: flex;
             min-height: 100vh;
+            transition: margin-left 0.3s ease;
         }
 
         /* Sidebar */
@@ -29,8 +31,8 @@
             height: 100vh;
             position: fixed;
             top: 0;
-            left: 0;
-            transition: transform 0.3s ease, width 0.3s ease;
+            left: -250px;
+            transition: left 0.3s ease;
             z-index: 1000;
             display: flex;
             flex-direction: column;
@@ -38,17 +40,18 @@
             box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .sidebar.minimized {
-            transform: translateX(-220px);
+        .sidebar.show {
+            left: 0;
         }
 
         .sidebar img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #fff;
             margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .sidebar h2, .sidebar p {
@@ -72,11 +75,11 @@
         }
 
         .sidebar nav a:hover {
-            background: #3c599c;
+            background: #637cb8;
         }
 
         .toggle-btn {
-            background: #1f3a93;
+            background: #4c5e96;
             color: white;
             border: none;
             position: absolute;
@@ -95,19 +98,20 @@
         }
 
         .toggle-btn:hover {
-            background: #3c599c;
+            background: #92a6d4;
         }
 
         /* Main Content */
         .content {
-            margin-left: 250px;
+            margin-left: 0;
             padding: 30px;
             flex-grow: 1;
             transition: margin-left 0.3s ease;
+            width: 100%;
         }
 
-        .content.minimized {
-            margin-left: 50px;
+        .content.shifted {
+            margin-left: 250px;
         }
 
         .content header {
@@ -135,20 +139,67 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
         }
 
-        .section h2 {
-            font-size: 24px;
+        .section img {
+            width: 180px;
+            height: auto;
+            border-radius: 10px;
+            margin-right: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Introduction Section Styling */
+        .intro-section {
+            background: url('images/introduction.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 50px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .intro-section .intro-text {
+            max-width: 60%;
+        }
+
+        .intro-section h2 {
+            font-size: 32px;
             margin-bottom: 15px;
         }
 
-        .section p {
-            font-size: 16px;
+        .intro-section p {
+            font-size: 18px;
             line-height: 1.8;
-            color: #555;
+            color: #ddd;
         }
 
-        footer {
+        .intro-section img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icons a {
+            color: #1f3a93;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #4e73df;
+        }
+
+        .footer {
             text-align: center;
             background: #1f3a93;
             color: white;
@@ -158,18 +209,50 @@
             bottom: 0;
         }
 
-        footer p {
+        .footer p {
             font-size: 14px;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .content {
-                margin-left: 50px;
+                margin-left: 0;
             }
 
-            .content.minimized {
-                margin-left: 50px;
+            .content.shifted {
+                margin-left: 0;
+            }
+
+            .sidebar {
+                width: 220px;
+            }
+
+            .section img {
+                width: 120px;
+                margin-right: 15px;
+            }
+
+            .intro-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .intro-section .intro-text {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .intro-section h2 {
+                font-size: 28px;
+            }
+
+            .intro-section p {
+                font-size: 16px;
+            }
+
+            .intro-section img {
+                width: 200px;
+                height: 200px;
             }
         }
     </style>
@@ -178,16 +261,17 @@
 
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
-        <button class="toggle-btn" id="toggleBtn">☰</button>
+        <button class="toggle-btn" id="toggleBtn">
+            <i class="fas fa-bars"></i>
+        </button>
         <img src="images/samir1.jpg" alt="Samir's Photo">
         <h2>Samir Khanal</h2>
         <p>Student at Tongmyong University</p>
         <nav>
-            <a href="index.html">Home</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="life-in-korea.html">Life in Korea</a>
             <a href="civil-engineering.html">Civil Engineering</a>
             <a href="materials.html">Class Materials</a>
-            <a href="life-in-korea.html">Life in Korea</a>
-            <a href="hobbies.html">Hobbies</a>
         </nav>
     </div>
 
@@ -199,25 +283,28 @@
         </header>
 
         <!-- Self Introduction Section -->
-        <section class="section">
-            <h2>Self Introduction</h2>
-            <p>Hello, my name is Samir Khanal, and I am from Palpa, Nepal. I completed my diploma in Civil Engineering in Nepal and am currently studying Information Systems and Security at Tongmyong University in Busan, South Korea. In addition to my academic work, I am passionate about sports, especially football and cricket, and I enjoy spending my weekends relaxing or learning new skills.</p>
+        <section class="intro-section">
+            <img src="images/index.png" alt="Samir's Portrait">
+            <div class="intro-text">
+                <h2>Self Introduction</h2>
+                <p>Hello, my name is Samir Khanal, and I am from Palpa, Nepal. I completed my diploma in Civil Engineering in Nepal and am currently studying Information Systems and Security at Tongmyong University in Busan, South Korea. Being a foreign student here in Korea has been an exciting and enriching experience, both academically and culturally.</p>
+                <p>In addition to my academic work, I am passionate about sports, especially football and cricket, and I enjoy spending my weekends relaxing or learning new skills. My time in Korea has allowed me to grow not only academically but also personally, and I am excited about what the future holds.</p>
+            </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- Social Media Links -->
         <section class="section">
-            <h2>Skills & Expertise</h2>
-            <p>Throughout my academic and professional journey, I have gained expertise in various fields, including:</p>
-            <ul>
-                <li><strong>AutoCAD:</strong> Proficient in creating 2D and 3D designs for construction and architectural projects.</li>
-                <li><strong>SketchUp:</strong> Skilled in creating 3D models for building designs and presentations.</li>
-                <li><strong>Valuation Survey:</strong> Experienced in land and property surveys for project costing and property assessments.</li>
-                <li><strong>Building Supervision:</strong> Able to oversee construction projects to ensure quality and adherence to standards.</li>
-            </ul>
+            <h2>Connect with Me</h2>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/sameer.khanal.1806?mibextid=LQQJ4d" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/sameer.khanal.143/?utm_source=qr#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:samirkhanal9298@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+82102814903"><i class="fas fa-phone-alt"></i></a>
+            </div>
         </section>
 
         <!-- Footer -->
-        <footer>
+        <footer class="footer">
             <p>&copy; 2024 Samir Khanal. All rights reserved.</p>
         </footer>
     </div>
@@ -228,9 +315,10 @@
         const content = document.getElementById('content');
 
         toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('minimized');
-            content.classList.toggle('minimized');
+            sidebar.classList.toggle('show');
+            content.classList.toggle('shifted');
         });
     </script>
+
 </body>
 </html>
