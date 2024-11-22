@@ -18,7 +18,6 @@
             background: linear-gradient(to bottom, #eaf2f8, #f7f9fc);
             color: #333;
             display: flex;
-            flex-direction: column;
             min-height: 100vh;
         }
 
@@ -27,64 +26,88 @@
             background: #1f3a93;
             color: white;
             width: 250px;
-            padding: 20px;
             height: 100vh;
             position: fixed;
             top: 0;
             left: 0;
-            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, width 0.3s ease;
+            z-index: 1000;
             display: flex;
             flex-direction: column;
             align-items: center;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar.minimized {
+            transform: translateX(-220px);
         }
 
         .sidebar img {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #fff;
-            margin-bottom: 15px;
+            margin-top: 20px;
         }
 
-        .sidebar h2 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .sidebar p {
-            font-size: 14px;
-            margin-bottom: 20px;
+        .sidebar h2, .sidebar p {
+            margin: 10px 0;
             text-align: center;
+            font-size: 14px;
         }
 
         .sidebar nav {
             width: 100%;
+            margin-top: 20px;
         }
 
         .sidebar nav a {
             color: white;
             text-decoration: none;
-            display: block;
             font-size: 16px;
-            margin: 8px 0;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 15px 20px;
+            display: block;
             transition: background 0.3s ease;
-            text-align: center;
         }
 
         .sidebar nav a:hover {
             background: #3c599c;
         }
 
+        .toggle-btn {
+            background: #1f3a93;
+            color: white;
+            border: none;
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 1001;
+            transition: background 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background: #3c599c;
+        }
+
         /* Main Content */
         .content {
-            margin-left: 270px;
+            margin-left: 250px;
             padding: 30px;
             flex-grow: 1;
-            width: calc(100% - 270px);
+            transition: margin-left 0.3s ease;
+        }
+
+        .content.minimized {
+            margin-left: 50px;
         }
 
         .content header {
@@ -125,17 +148,6 @@
             color: #555;
         }
 
-        .section ul {
-            padding-left: 20px;
-            margin-top: 15px;
-        }
-
-        .section ul li {
-            font-size: 14px;
-            margin-bottom: 10px;
-            color: #444;
-        }
-
         footer {
             text-align: center;
             background: #1f3a93;
@@ -152,78 +164,12 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .sidebar {
-                width: 200px;
-                padding: 15px;
-            }
-
-            .sidebar img {
-                width: 100px;
-                height: 100px;
-            }
-
-            .sidebar h2 {
-                font-size: 18px;
-            }
-
-            .sidebar nav a {
-                font-size: 14px;
-                padding: 8px 15px;
-            }
-
             .content {
-                margin-left: 0;
-                padding: 15px;
-                width: 100%;
+                margin-left: 50px;
             }
 
-            .content header h1 {
-                font-size: 24px;
-            }
-
-            .section h2 {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .sidebar {
-                position: static;
-                width: 100%;
-                height: auto;
-                padding: 10px;
-                box-shadow: none;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .sidebar img {
-                width: 50px;
-                height: 50px;
-            }
-
-            .sidebar nav {
-                display: none;
-            }
-
-            .sidebar.active nav {
-                display: block;
-                background: #1f3a93;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                text-align: center;
-            }
-
-            .content header h1 {
-                font-size: 20px;
-            }
-
-            footer {
-                font-size: 12px;
-                padding: 8px;
+            .content.minimized {
+                margin-left: 50px;
             }
         }
     </style>
@@ -231,7 +177,8 @@
 <body>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggleBtn">☰</button>
         <img src="images/samir1.jpg" alt="Samir's Photo">
         <h2>Samir Khanal</h2>
         <p>Student at Tongmyong University</p>
@@ -245,7 +192,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="content">
+    <div class="content" id="content">
         <header>
             <h1>Welcome to My Personal Page</h1>
             <p>Learn more about my journey, hobbies, and academic pursuits!</p>
@@ -275,5 +222,15 @@
         </footer>
     </div>
 
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggleBtn');
+        const content = document.getElementById('content');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('minimized');
+            content.classList.toggle('minimized');
+        });
+    </script>
 </body>
 </html>
