@@ -212,6 +212,60 @@
         .footer p {
             font-size: 14px;
         }
+        /* Suggestion Box Styling */
+        .suggestion-section {
+            background: #809abb;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .suggestion-section h2 {
+            margin-bottom: 12px;
+        }
+
+        .suggestion-form input,
+        .suggestion-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .suggestion-form button {
+            background: #4e73df;
+            color: white;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .suggestion-form button:hover {
+            background: #3c599c;
+        }
+
+        .thank-you {
+            font-size: 12px;
+            font-weight: bold;
+            color: #f10606;
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .social-icons a {
+            color: #1f3a93;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #4e73df;
+        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -258,7 +312,6 @@
     </style>
 </head>
 <body>
-
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <button class="toggle-btn" id="toggleBtn">
@@ -292,6 +345,25 @@
             </div>
         </section>
 
+        <!-- Suggestion Box Section -->
+        <section class="suggestion-section">
+            <h2>We Value Your Feedback</h2>
+            <p>Please share your suggestions with me! I'd love to hear from you.</p>
+
+            <!-- Suggestion Form -->
+            <form class="suggestion-form" id="suggestionForm">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="suggestion" name="suggestion" placeholder="Your Suggestion" rows="4" required></textarea>
+                <button type="submit">Submit Suggestion</button>
+            </form>
+
+            <!-- Thank You Message -->
+            <div class="thank-you" id="thankYouMessage" style="display: none;">
+                Thank you for your suggestion!
+            </div>
+        </section>
+
         <!-- Social Media Links -->
         <section class="section">
             <h2>Connect with Me</h2>
@@ -308,15 +380,35 @@
             <p>&copy; 2024 Samir Khanal. All rights reserved.</p>
         </footer>
     </div>
-
+    <!-- JavaScript for Sidebar Toggle -->
     <script>
         const sidebar = document.getElementById('sidebar');
         const toggleBtn = document.getElementById('toggleBtn');
         const content = document.getElementById('content');
 
-        toggleBtn.addEventListener('click', () => {
+        toggleBtn.addEventListener('click', function() {
             sidebar.classList.toggle('show');
             content.classList.toggle('shifted');
+        });
+    </script>
+    <script>
+        const form = document.getElementById('suggestionForm');
+        const thankYouMessage = document.getElementById('thankYouMessage');
+        const suggestionForm = document.getElementById('suggestionForm');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();  // Prevent page reload
+
+            // Get user input
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const suggestion = document.getElementById('suggestion').value;
+
+            // Show the thank you message
+            thankYouMessage.style.display = 'block';
+
+            // Clear the form fields after submission
+            suggestionForm.reset();
         });
     </script>
 
