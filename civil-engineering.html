@@ -70,14 +70,31 @@
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        nav {
-            text-align: center;
+        .company-details {
             margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            text-align: center;
         }
-        nav a {
-            color: white;
-            text-decoration: underline;
-            font-size: 16px;
+        .company-details h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #ffc107;
+        }
+        .company-details p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .visiting-card img {
+            width: 200px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .visiting-card img:hover {
+            transform: scale(1.05);
+            transition: 0.3s;
         }
     </style>
 </head>
@@ -88,7 +105,7 @@
     </header>
 
     <section>
-        <h2>Introduction to Civil Engineering</h2>
+        <h2>My journey to Civil Engineering</h2>
         <p>
             I completed my diploma in Civil Engineering in Nepal, where I gained hands-on experience in site supervision, building construction, valuation surveys, and design work. My expertise lies in ensuring the quality of construction projects and using advanced tools to create precise designs and blueprints.
         </p>
@@ -120,6 +137,22 @@
             </ul>
         </div>
     </section>
+
+    <!-- Company Details Section -->
+    <div class="company-details">
+        <h2>About Kaligandaki Engineering Consultancy</h2>
+        <p>
+            Kaligandaki Engineering Consultancy specializes in building house designs, property valuation, land surveys, and comprehensive civil engineering solutions. With a focus on precision and innovation, we are committed to delivering the highest standards of service to our clients.
+        </p>
+        <div class="visiting-card">
+            <a href="images/visiting card.jpg" target="_blank">
+                <img src="images/visiting card.jpg" alt="Visiting Card of Kaligandaki Engineering Consultancy">
+            </a>
+        </div>
+        <p>
+            <strong>Contact Us:</strong> +977-9866571600
+        </p>
+    </div>
 
     <nav>
         <a href="index.html">Back to Home</a>
